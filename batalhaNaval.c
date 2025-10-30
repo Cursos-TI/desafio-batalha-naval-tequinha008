@@ -1,40 +1,78 @@
-#include <stdio.h>
+#include<stdio.h>
 
-// Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
+int main () {
 
-int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+    //DEFINIÇAO DO TABULEIRO
+    char linha[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+    int coluna[10] = {1,2,3,4,5,6,7,8,9,10};
+    int tabuleiro[10][10];
 
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
+    //IMPRIME O TABULEIRO
+    printf("TABULEIRO DE BATALHA NAVAL: \n");
+    printf("\n");
 
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
-
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
+        // IMPRIME A LINHA
+        printf("   "); // ESPAÇO ENTRE LINHA E COLUNA
+        for (int i = 0; i < 10; i++){
+        printf("%c ", linha[i]);
+        }
     
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
+    printf("\n"); // ESPAÇO ENTRE LINHA E COLUNA
 
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
+            // IMPRIME A COLUNA
+            for (int i = 0; i < 10; i++)    {
+            printf("%2d ", coluna[i]); 
+            
+            // PREENCHE O CORPO DO TABULEIRO COM '0', NESSE CASO 0 É A ÁGUA.
+            for (int j = 0; j < 10; j++){ 
+            tabuleiro[i][j] = 0;
+            printf("%d ", tabuleiro[i][j]);
+        }
+        
+        printf("\n"); //ESPAÇO ENTRE AS LINHAS DE '0'
 
-    return 0;
+        }
+    
+    // IMPRIMINDO O TABULEIRO COM OS NAVIOS
+
+    printf("\n");
+    printf("TABULEIRO COM NAVIOS: \n");
+    printf("\n");
+
+        // CODIGO PARA POSICIONAR OS NAVIOS
+        for (int navio1 = 3; navio1 < 6; navio1++) { // PRIMEIRO NAVIO NA HORIZONTAL (POSIÇAO [5][3], [5][4], [5][5])
+            tabuleiro[5][navio1] = 3; // LINHA 5 E COLUNA 3 = NAVIO1 
+        }
+        
+        for (int navio2 = 1; navio2 < 4; navio2++){ // SEGUNDO NAVIO NA VERTICAL (POSIÇAO [1][9], [2][9], [3][9])
+            tabuleiro[navio2][9] = 3; // LINHA 1 = NAVIO2 E COLUNA 9
+        }
+        for (int navio3 = 1; navio3 < 4; navio3++){ // TERCEIRO NAVIO NA DIAGONAL (POSIÇAO [1][3], [2][2], [1][1])
+            tabuleiro[navio3][4-navio3] = 3; // LINHA 1 = NAVIO3 E COLUNA A PARTIR DA 3 (4 - 1 (NAVIO3))
+        }
+        for (int navio4 = 1; navio4 < 4; navio4++){ // QUARTO NAVIO NA DIAGONAL (POSIÇAO [6][1], [7][2], [9][3])
+            tabuleiro[5+navio4][navio4] = 3; // LINHA 1 (NAVIO4) + 5 E COLUNA A PARTIR DA 1
+        }
+        
+        // IMPRIME A LINHA NOVAMENTE
+        printf("   ");
+        for (int i = 0; i < 10; i++){
+        printf("%c ", linha[i]);
+        }
+        printf("\n"); // ESPAÇO ENTRE LINHA E COLUNA
+
+        // IMPRIME A COLUNA NOVAMENTE
+        for (int i = 0; i < 10; i++)    {
+        printf("%2d ", coluna[i]); 
+
+        // PREENCHE O CORPO DO TABULEIRO COM '0', NESSE CASO 0 É A ÁGUA.
+        for (int j = 0; j < 10; j++){ 
+        printf("%d ", tabuleiro[i][j]);
+        }
+        
+        printf("\n"); //ESPAÇO ENTRE AS LINHAS DE
+        
+
+    }
+
 }
