@@ -8,7 +8,7 @@ int main () {
     int tabuleiro[10][10];
 
     //IMPRIME O TABULEIRO
-    printf("TABULEIRO DE BATALHA NAVAL: \n");
+    printf("TABULEIRO DE BATALHA NAVAL: \n"); 
     printf("\n");
 
         // IMPRIME A LINHA
